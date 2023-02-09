@@ -35,3 +35,11 @@ body.dark main p.lead{
 .fav-card img {
   max-height: 100px;
 }
+
+/* .on-hover{
+  transition: all .3s linear;
+  opacity: 0;
+}
+*:hover > .on-hover{
+  opacity: 1;
+} */

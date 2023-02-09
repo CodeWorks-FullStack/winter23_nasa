@@ -10,7 +10,7 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/Apod').Apod} */
   apod = null
 
-  theme = 'light'
+  theme = 'dark'
 
   user = 'bob'//window.prompt('what is your name')
 
