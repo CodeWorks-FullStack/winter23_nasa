@@ -8,10 +8,4 @@ export class Apod {
     this.copyright = data.copyright
     this.media_type = data.media_type
   }
-
-  get template(){
-    return `
-      
-    `
-  }
 }
