@@ -10,6 +10,10 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/Apod').Apod} */
   apod = null
 
+  user = 'jeremy'
+
+  /** @type {import('./Models/Favorite').Favorite[]} */
+  favorites = []
 
 }
 
