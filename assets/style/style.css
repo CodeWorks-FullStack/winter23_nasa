@@ -1,0 +1,11 @@
+/* BASIC STYLES HERE */
+
+
+body {
+  background-image: url(https://apod.nasa.gov/apod/image/2302/PearlCloudDennis7_1024.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+}
+
