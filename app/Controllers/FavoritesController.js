@@ -14,16 +14,27 @@ function drawFavs() {
 export class FavoritesController {
 
   constructor() {
-    console.log('hello favs')
-
     // HEY listen! 🧚
     appState.on('favorites', drawFavs)
-
-
     this.getFavs()
-
+    // setTimeout(()=>{
+    //   if (!appState.user) {
+    //     this.setUser()
+    //   }
+    // }, 1000)
 
   }
+
+
+  async setUser() {
+    try {
+      const username = await Pop.prompt('What is your name.... Fellow human 🦒')
+      favoritesService.setUser(username)
+    } catch (error) {
+      Pop.error(error)
+    }
+  }
+
 
 
   async getFavs() {
@@ -31,6 +42,15 @@ export class FavoritesController {
       await favoritesService.getFavs()
     } catch (error) {
       console.error('[Getting Favs]', error)
+      Pop.error(error)
+    }
+  }
+
+  async addFavorite() {
+    try {
+      await favoritesService.addFavorite()
+    } catch (error) {
+      console.error(']Error adding Favorite[')
       Pop.error(error)
     }
   }

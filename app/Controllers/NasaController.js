@@ -15,6 +15,10 @@ export class NasaController {
   constructor() {
     this.getApod()
     appState.on('apod', _drawApod)
+
+    document.getElementById('datepicker').setAttribute('max', new Date().toLocaleDateString('en-CA'))
+    document.getElementById('datepicker').setAttribute('min', '1995-06-16')
+
   }
 
   async getApod(date) {
@@ -23,6 +27,18 @@ export class NasaController {
     } catch (error) {
       console.error(error)
       Pop.error(error)
+    }
+  }
+
+
+  async handleDateInput() {
+    try {
+      // @ts-ignore
+      const date = window.event.target.value
+      await this.getApod(date)
+    } catch (e) {
+      console.error('[Date Input]', e)
+      Pop.error(e)
     }
   }
 

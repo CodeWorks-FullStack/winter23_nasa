@@ -10,7 +10,9 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/Apod').Apod} */
   apod = null
 
-  user = 'jeremy'
+  theme = 'light'
+
+  user = 'bob'//window.prompt('what is your name')
 
   /** @type {import('./Models/Favorite').Favorite[]} */
   favorites = []

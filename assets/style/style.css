@@ -9,17 +9,29 @@ body {
   width: 100vw;
 }
 
-.scrollable-x{
+body.light .container-fluid{
+  background-color: rgba(240, 248, 255, 0.35);
+  color: darkslateblue;
+}
+
+body.dark main p.lead{
+  color: rgba(240, 248, 255);
+  background-color: rgba(18, 14, 44, 0.5);
+  padding: 3rem;
+}
+
+
+.scrollable-x {
   overflow-x: auto !important;
   max-width: 100vw;
 }
 
 
-.fav-card{
+.fav-card {
   /* FIXME stupid scroll-x */
   /* width: 20vw; */
 }
 
-.fav-card img{
+.fav-card img {
   max-height: 100px;
 }
