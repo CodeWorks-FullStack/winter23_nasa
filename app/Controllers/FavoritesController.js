@@ -17,12 +17,6 @@ export class FavoritesController {
     // HEY listen! 🧚
     appState.on('favorites', drawFavs)
     this.getFavs()
-    // setTimeout(()=>{
-    //   if (!appState.user) {
-    //     this.setUser()
-    //   }
-    // }, 1000)
-
   }
 
 
@@ -39,6 +33,9 @@ export class FavoritesController {
 
   async getFavs() {
     try {
+      if (!appState.user) {
+        await this.setUser()
+      }
       await favoritesService.getFavs()
     } catch (error) {
       console.error('[Getting Favs]', error)

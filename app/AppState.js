@@ -12,7 +12,7 @@ class AppState extends EventEmitter {
 
   theme = 'dark'
 
-  user = 'bob'//window.prompt('what is your name')
+  user = loadState('user')
 
   /** @type {import('./Models/Favorite').Favorite[]} */
   favorites = []
