@@ -9,9 +9,11 @@ export class Favorite {
 
   get FavCard() {
     return /*html*/`
-      <div class="fav-card rounded elevation-3 selectable" onclick="app.nasaController.getApod('${this.date}')" data-bs-dismiss="offcanvas">
-      <img class="img-fluid" src="${this.imgUrl}" alt="" title="${this.date}">
-      <div class="text-center on-hover"><i class="mdi mdi-pinwheel mdi-spin"></i>  ${this.date.split('-').join('/')}</div>
+      <div class="fav-card" onclick="app.nasaController.getApod('${this.date}')" data-bs-dismiss="offcanvas">
+        <div class="text-center on-hover">
+          <i class="mdi mdi-pinwheel mdi-spin"></i>  ${this.date.split('-').join('/')}
+        </div>
+        <img src="${this.imgUrl}" alt="" class="rounded elevation-2 selectable">
       </div>
     `
   }

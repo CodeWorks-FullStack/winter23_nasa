@@ -1,7 +1,7 @@
 import { appState } from "../AppState.js"
 import { favoritesService } from "../Services/FavoritesService.js"
 import { Pop } from "../Utils/Pop.js"
-import { setHTML } from "../Utils/Writer.js"
+import { setHTML, setText } from "../Utils/Writer.js"
 
 
 function drawFavs() {
@@ -10,13 +10,19 @@ function drawFavs() {
   setHTML('favs', template)
 }
 
+function drawUser() {
+  setText('favPodsLabel', 'Favorites Pictures ' + appState.user)
+}
+
 
 export class FavoritesController {
 
   constructor() {
     // HEY listen! 🧚
     appState.on('favorites', drawFavs)
+    appState.on('user', drawUser)
     this.getFavs()
+    drawUser()
   }
 
 
@@ -24,6 +30,7 @@ export class FavoritesController {
     try {
       const username = await Pop.prompt('What is your name.... Fellow human 🦒')
       favoritesService.setUser(username)
+      await this.getFavs()
     } catch (error) {
       Pop.error(error)
     }
@@ -34,7 +41,7 @@ export class FavoritesController {
   async getFavs() {
     try {
       if (!appState.user) {
-        await this.setUser()
+        return await this.setUser()
       }
       await favoritesService.getFavs()
     } catch (error) {
